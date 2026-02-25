@@ -1,10 +1,11 @@
 <script>
     let hpBoss = 3000;
+    let hpHeroi = 200;
     let manaHeroi = 100;
     let manaGastaTotal = 0;
     let acao;
 
-    alert("O Chefe Surgiu: 300hp")
+    alert("O Chefe Surgiu: 300hp - HP Herói: 200hp")
     for (let turno = 1; turno <= 15; turno++) {
         if (hpBoss <= 0) {
             alert("O Boss foi Derrotado!")
@@ -17,7 +18,8 @@
         let menu = "Escolha sua ação: \n"
                     + " 1 - Ataque Básico \n"
                     + " 2 - Skill \n"
-                    + " 3 - Ultimate \n";
+                    + " 3 - Ultimate \n"
+                    + " 4 - Potion \n";
         let escolha = prompt(menu);
         let acao = parseInt(escolha);
 
@@ -47,9 +49,32 @@
                     alert("Ultimate não carregada!");
                 }
                 break;
+            case 4:
+                if (Math.random() > 0.6) {
+                    hpHeroi += 50;
+                }
+                break;
+            default:
+                alert("Opção não existe na lista de opções!")
         }
         manaHeroi += 5;
-        alert("HP Boss: " + hpBoss + " Mana:" + manaHeroi);
+
+        // Turno do Boss
+        if (hpBoss > 0) {
+            // random 0.1 0.9
+            if (Math.random() >= 0.8) {
+                let danoBoss = 15;
+                if (Math.random() >= 0.8) {
+                    danoBoss = 35;
+                }
+                hpHeroi -= danoBoss
+                alert("O Boss atacou com " + danoBoss)
+            }
+        }
+
+        alert("HP Boss: " + hpBoss + 
+                " \n Mana:" + manaHeroi + 
+                " \n HP Herói: " + hpHeroi);
     }
     if (hpBoss <= 0) { 
         alert("Vitória");
