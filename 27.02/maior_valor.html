@@ -1,0 +1,14 @@
+<script>
+    var numeros = [12, 45, 8, 91, 32];
+// 1Inicializa o maior valor com o primeiro elemento do array
+    var maiorValor = numeros[0]; 
+// 2Interação Nos demais intens a partir do 1
+    for (var i = 1; i < numeros.length; i++) {
+        //1Para cada loop verifica o valor
+        if (numeros[i] > maiorValor) {
+            //Se for maior , atribui a variavel
+            maiorValor = numeros[i]; // Atualiza o maior valor se encontrar um número maior
+        }
+    }
+    alert ("O maior valor é: " + maiorValor);
+</script>
