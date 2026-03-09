@@ -1,0 +1,37 @@
+<script>
+    let hero = {
+        nome: "Aragon",
+        hp: 100,
+        mp: 50,
+        energia: 0
+    };
+    let boss = {
+        nome: "Mohg, Senhor do Sangue",
+        hp: 1000,
+        ataqueFixo: 15
+    };
+    let skills = [
+        {id:1, nome:"Ataque Leve", dano: 10, custo: 0, energia: 0},
+        {id:2, nome:"Ash of War", dano: 25, custo: 20, energia: 0},
+        {id:3, nome:"Eldritch Stars", dano: 60, custo: 0, energia: 60},
+    ];
+    const atacarBoss = (tipoAtaque) => {
+        const habilidade = skills.find(s => s.id == tipoAtaque);
+        if (hero.mp >= habilidade.custo
+            && hero.energia >= habilidade.energia) {
+                boss.hp -= habilidade.dano;
+                hero.mp -= habilidade.custo;
+                hero.energia += habilidade.custo;
+                alert(`${hero.nome} usou ${habilidade.nome}!
+                Causou ${habilidade.dano} de dano.`);
+            }
+            alert(`***STATUS*** \n
+                Boss: ${boss.hp} | Hero: ${hero.hp} `)
+    }
+    while(boss.hp >= 0 && hero.hp >= 0) {
+        msg = "Escolha seu ataque: " +
+            "| 1. Básico | 2. Skill | 3. Ultimate |";
+        let ataque = parseInt(prompt(msg));
+        atacarBoss(ataque);
+    }
+</script>
