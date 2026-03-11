@@ -1,0 +1,62 @@
+<script>
+
+    let hero ={
+
+        nome: "leo",
+        hp: 100,
+        mp: 50,
+        energia: 0
+
+
+    };
+
+    let boss = {
+
+        nome: "Satan",
+        hp: 10000,
+        ataqueFixo: 15
+    };
+
+    let skills = [
+    
+        {id: 1, nome: "poderOracao", dano: 20 , hp:10, custo:0,  energia:0 },
+        {id: 2, nome: "EspadadaBiblica", dano:100, custo:0,  energia:0 },
+        {id: 3, nome: "Jejum", dano:1000 , hp:-1, custo:0,  energia:0 },
+        {id: 4, nome: "invocacaoEspiritoSanto ", dano:10000000000000, custo:0,  energia:0 },
+    ];
+
+    const atacarBoss = (tiposAtaque) => {
+
+        const habilidade = skills.find( s => s.id == tiposAtaque);
+
+        if (hero.mp >= habilidade.custo && hero.energia >= habilidade.energia){
+
+            boss.hp -= habilidade.dano;
+            hero.mp -= habilidade.custo;
+            hero.energia += habilidade.custo;
+            alert(`${hero.nome} uso ${habilidade.nome}! Causou ${habilidade.dano} de dano`);
+        }else{
+
+
+            alert("Voce nao tem FÉ o suficiente")
+
+        };
+
+
+        hero.hp -= boss.ataqueFixo;
+        alert(`*******STATUS******* \n
+        Boss: ${boss.hp} | Hero: ${hero.hp}`)
+    }
+    
+    
+    while(boss.hp >= 0 && hero.hp >= 0 ){
+        
+        msg =  "Escolha seu ataque:" + 
+        " 1 - Poder da Oração | 2 - Espadada Biblica | 3 - Jejum | 4 - Invocação do espirito Santo";
+
+        let ataque = parseInt(prompt(msg))
+        atacarBoss(ataque);
+
+    }
+
+</script>
