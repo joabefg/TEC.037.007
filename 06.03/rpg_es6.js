@@ -1,4 +1,4 @@
-<script>
+
     let hero = {
         nome: "Aragon",
         hp: 100,
@@ -29,10 +29,9 @@
             alert(`***STATUS*** \n 
                 Boss: ${boss.hp} | Hero: ${hero.hp} `);
     }
-    while(boss.hp >= 0 && hero.hp >= 0) {
-        msg = "Escolha seu ataque: " +
-            "| 1. Basico | 2. Skill | 3. Ultimate |";
-        let ataque = parseInt(prompt(msg));
-        atacarBoss(ataque);
+    // 2. DOM: Função para atualizar a tela (Sincroniza o JS com o HTML)
+    function atualizarTela() {
+        document.getElementById("hp-boss").innerText = boss.hp;
+        document.getElementById("hp-heroi").innerText = heroi.hp;
+        document.getElementById("mana-heroi").innerText = heroi.mana;
     }
-</script>
