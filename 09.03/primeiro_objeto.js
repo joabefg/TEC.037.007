@@ -20,5 +20,5 @@ let contaCorrente2 = new Conta("corrente", "Victor", -500);
 
 
 console.log(contaCorrente.mostrarExtrato())
-contaCorrente. (1500);
+contaCorrente.depositar(1500);
 console.log(contaCorrente.mostrarExtrato())
