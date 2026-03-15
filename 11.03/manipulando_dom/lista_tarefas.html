@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Trabalhando com DOM</title>
+</head>
+<body class="container-sm py-5">
+    <!-- Formulário -->
+    <form id="formulario" class="form-control mb-3">
+
+        <fieldset class="mt-2 mb-2">
+            <input type="text" name="input-nome" id="input-nome" placeholder="Digite seu nome">
+            <label for="input-nome">Digite o nome do heroi</label>
+        </fieldset>
+
+        <fieldset class="mb-2">
+            <input type="text" name="input-missao" id="input-missao" placeholder="Digite sua missão">
+            <label for="input-missao">Digite sua missão</label>
+        </fieldset>
+        
+        <fieldset class="mb-2">
+            <button class="btn btn-primary" type="submit">Adicionar missão</button>
+        </fieldset>
+    </form>
+
+    <div class="alert alert-danger d-none" role="alert" id="erro"></div>
+
+    <!-- Tabela onde iremos armazenar as informações -->
+    <table class="table table-responsive table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Nome</th>
+                <th>Missão</th>
+            </tr>
+        </thead>
+        <tbody id="corpo-tabela">
+        </tbody>
+    </table>
+
+    <script>
+        const formulario = document.getElementById("formulario"); //Pega nosso formulario
+        const missao = document.getElementById("input-missao"); //Pega o campo missao
+        const nome = document.getElementById("input-nome"); //Pega o campo nome
+        const tabela = document.getElementById("corpo-tabela");//Pega o campo tabela
+        const erro = document.getElementById("erro"); //Pega a div erro
+
+        formulario.onsubmit = (e) => {
+            e.preventDefault();
+
+            //Validação do preenchimento dos campos
+            if (nome.value === '' || missao.value === '') {
+                erro.classList.remove('d-none') //Remove a classe
+                erro.innerText = 'Preencha todas os campos!'
+                
+                //Espera 3 segundo e adiciona a classe novamente
+                setTimeout(() => {
+                    erro.classList.add('d-none');
+                }, 3000)
+                
+            } else{
+                //Criando um elemento
+                campo_tabela = document.createElement("tr"); //Elemento tr
+                item_nome_tabela = document.createElement("td"); //Elemento td
+                item_missao_tabela = document.createElement("td"); //Elemento td
+                
+                //Adicionando os valores
+                item_nome_tabela.innerText = `${nome.value}`
+                item_missao_tabela.innerText = `${missao.value}`
+                
+                
+                //Inserindo os elementos
+                campo_tabela.appendChild(item_nome_tabela) //td -> tr
+                campo_tabela.appendChild(item_missao_tabela) //td -> tr
+                tabela.appendChild(campo_tabela);// tr -> tbody
+                
+                formulario.reset();
+                alert("Os dados foram enviados com sucesso")
+            }
+        }
+    </script>
+</body>
+</html>
