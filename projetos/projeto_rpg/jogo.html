@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     <!-- Adicionar o Bootstrap -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+     <div class="container" style="margin-top: 15px;">
+          <div class="card border-primary text-center">
+               <div class="card-header">
+                    RPG GAME
+               </div>
+               <div class="card-body" id="tela" style="background-image: url('assets/bg.gif')">
+                    <!--<div class="card-body" id="tela">-->
+                    <h4>
+                         <audio controls loop>
+                              <source src="assets/bgm.mp3" type="audio/mpeg" autoplay>
+                              Seu navegador não suporta o elemento de áudio.
+                         </audio>
+                    </h4>
+                    <h5 class="card-title">Final Boss</h5>
+                    <p class="card-text" style="font-weight: bold;">
+                         Turno <span id="turno">1</span>
+                    </p>
+                    <div class="row">
+                         <div class="col text-end">
+                              <ul class="list-group float-end text-center" style="width: 225px;">
+                                   <li class="list-group-item" id="name-hero" style="font-weight: bold;"></li>
+                                   <li class="list-group-item" id="title-hero"></li>
+                                   <li class="list-group-item">
+                                        ❤️ <progress id="hp-hero" value="100" max="100" style="accent-color:#dc3545">
+                                        </progress>
+                                   </li>
+                                   <li class="list-group-item">
+                                        🧪 <progress id="mp-hero" value="100" max="100" style="accent-color:#0d6efd">
+                                        </progress>
+                                   </li>
+                                   <li class="list-group-item">
+                                        ⚡ <progress id="en-hero" value="0" max="100"
+                                             style="accent-color:orange"></progress>
+                                   </li>
+                              </ul>
+                         </div>
+                         <div class="col">
+                              <ul class="list-group" style="width: 225px;">
+                                   <li class="list-group-item" id="name-boss" style="font-weight: bold;"></li>
+                                   <li class="list-group-item" id="title-boss"></li>
+                                   <li class="list-group-item">
+                                        ❤️ <progress id="hp-boss" value="100" max="100" style="accent-color:#dc3545">
+                                        </progress>
+                                   </li>
+                                   <li class="list-group-item">
+                                        ⚡ <progress id="en-boss" value="50" max="100"
+                                             style="accent-color:orange"></progress>
+                                   </li>
+                              </ul>
+                         </div>
+                    </div>
+                    <div class="row">
+                         <div class="col text-end">
+                              <div>
+                                   <img src="assets/hero.gif" alt="Card image cap" width="300px" height="300px">
+                              </div>
+                              <div class="btn-group" role="group" aria-label="Vertical button group" id="controles">
+                                   
+                              </div>
+                         </div>
+                         <div class="col text-start">
+                              <img src="assets/boss_gif.gif" alt="" width="300" height="300">
+                         </div>
+                    </div>
+               </div>
+               <div class="card-footer">
+                    <p><small class="text-muted" id="log-primario">...</small></p>
+                    <p><small class="text-muted" id="log-secundario">...</small></p>
+               </div>
+          </div>
+     </div>
+</body>
+<script src="jogo_rpg.js"></script>
+
+</html>
