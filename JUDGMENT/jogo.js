@@ -43,6 +43,6 @@ let attack = [
 attack.forEach(atk => {
     let btn = document.createElement("button");
     btn.innerText = atk.nome;
-    btn.classList.add("btn", "btn-warning");
+    btn.classList.add("btn");
     container.appendChild(btn);
 });
