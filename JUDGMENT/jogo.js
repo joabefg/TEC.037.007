@@ -33,3 +33,16 @@ document.getElementById("btn-shot").addEventListener("click", function() {
         document.getElementById("mp-gabriel").value = hero.mp;
         }
     });
+
+let container = document.getElementById("controles");
+let attack = [
+    new action("ATTACK", 10, 1),
+    new action("SHOOT", 20, 2)
+]
+
+attack.forEach(atk => {
+    let btn = document.createElement("button");
+    btn.innerText = atk.nome;
+    btn.classList.add("btn", "btn-warning");
+    container.appendChild(btn);
+});
