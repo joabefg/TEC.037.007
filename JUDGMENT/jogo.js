@@ -9,40 +9,30 @@ class personagem {
     }
 }
 
-class shot {
-    constructor(nome, dano, custo) {
+class Action {
+    constructor(id, nome, dano, custo) {
+        this.id = id;
         this.nome = nome;
         this.dano = dano;
         this.custo = custo;
     }
 }
 
-let hero = new personagem("Gabriel", 100, 5);
-let minos = new personagem("Minos Prime", 130, 10);
+let gabriel = new personagem("GABRIEL", 100, 5);
+let minos = new personagem("MINOS PRIME", 130, 10);
 
-document.getElementById("btn-attack").addEventListener("click", function() {
-    minos.hp -= 10;
-    hero.mp -= 1;
-    document.getElementById("hp-minos").value = minos.hp;});
-
-document.getElementById("btn-shot").addEventListener("click", function() {
-    if (hero.mp >= 1) {
-        minos.hp -= 20;
-        hero.mp -= 2;
-        document.getElementById("hp-minos").value = minos.hp;
-        document.getElementById("mp-gabriel").value = hero.mp;
-        }
-    });
+document.getElementById("nome-gabriel").textContent = gabriel.nome;
+document.getElementById("nome-minos").textContent = minos.nome;
 
 let container = document.getElementById("controles");
-let attack = [
-    new action("ATTACK", 10, 1),
-    new action("SHOOT", 20, 2)
-]
+let actions = [
+    new Action(1, "ATTACK", 10, 1),
+    new Action(2, "SHOOT", 20, 2)
+];
 
-attack.forEach(atk => {
+actions.forEach(atk => {
     let btn = document.createElement("button");
     btn.innerText = atk.nome;
-    btn.classList.add("btn");
+    btn.classList.add(atk.id === 1 ? "btn-attack" : "btn-shot");
     container.appendChild(btn);
 });
