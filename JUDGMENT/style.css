@@ -35,6 +35,7 @@ ul, li, .list-group, .list-group-item {
     background-color: blue;
     margin: auto;
     border: 1px solid white;
+    top: -25px;
     left: -50px;
     padding: 5px 20px;
     font-size: 1.2rem;
@@ -45,6 +46,7 @@ ul, li, .list-group, .list-group-item {
     background-color: goldenrod;
     margin: auto;
     border: 1px solid white;
+    top: -25px;
     left: -20px;
     padding: 5px 20px;
     font-size: 1.2rem;
