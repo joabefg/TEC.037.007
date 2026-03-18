@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="jogo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="boss-card text-center">
+            <div class="boss-card-header" style="border: 1px solid rgb(0, 0, 0); background-color: rgb(30, 2, 46); color: hsl(0, 0%, 100%);">
+                <h1>THE JUDGMENT OF KING MINOS</h1>
+            </div>
+            <div class="boss-card-body" id="tela" style="background-image: url('assets/LUST.webp');">
+                <div class="row">
+
+                    <div class="col" id="col-gabriel">
+                        <div class="col text-start" id="col-gabriel">
+                            <ul class="list-group float-start" style="width: 225px ; ">
+                                <li id="nome-gabriel" class="list-group-item" style="font-size: x-large";> GABRIEL </li>
+                                <li id="hp-gabriel" class="list-group-item"><progress class="hp-gabriel" id="hp-gabriel" value="100"max="100"></progress></li>
+                                <li id="mp-gabriel" class="list-group-item"><progress class="mp-gabriel" id="mp-gabriel" value="5" max="5"></progress></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col" id="col-minos">
+                        <div class="col text-right" id="col-minos">
+                            <ul class="list-group float-end" style="width: 225px ;" >
+                                <li id="nome-minos" class="list-group-item" style="font-size: x-large;"> MINOS </li>
+                                <li id="hp-minos" class="list-group-item"><progress class="hp-minos" id="hp-minos" value="130" max="130"></progress></li>
+                                <li id="energia-minos" class="list-group-item"><progress class="energia-minos" id="energia-minos" value="10"max="10"></progress></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-center" id="col-ataque">
+                            <div class="img-gabriel">
+                            <img src="assets/GABRIEL.gif" width="auto" height="auto" alt="Hero">
+                            </div>
+                            <div class="btn-group" id="controles">
+                                <button class="btn-attack" id="btn-attack">ATTACK</button>
+                                <button class="btn-shot" id="btn-shot">SHOT</button>
+                            </div>
+
+                        </div>
+                        <div class="col text-center" id="col-mensagem">
+                            <div class="img-minos">
+                            <img src="assets/MINOS.gif" width="auto" height="auto" alt="minos">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="boss-card-footer">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+  src="jogo.js"
+</script>
+</html>
