@@ -1,0 +1,29 @@
+/* Empurra tudo pra baixo */
+body {
+  padding-top: 7rem;
+}
+
+/* Espaçamento entre o bloco do Link e o bloco do Majora */
+#col-heroi {
+  margin-right: 4rem;
+  padding-top : 12rem;
+}
+
+#col-boss {
+  margin-left: 4rem;
+  padding-top : 12rem;
+}
+
+/* Espaçamento extra entre o GIF do Link + botões e a barra do Majora */
+#col-botoes {
+  margin-right: 4rem;
+}
+
+#col-msg {
+  margin-left: 4rem;
+}
+
+/* Espaçamento interno dos botões do Link */
+#controles {
+  margin-top: 1rem;
+}
