@@ -7,7 +7,35 @@ class Personagem {
         this.energia = energia;
     }
     atacar(alvo, habilidade) {
+        // verificar se tem mana/energia
+        if(this.mana >= habilidade.custo 
+            && this.energia >= habilidade.energia) {
+                // Dano no alvo
+                alvo.hp -= habilidade.dano;
+                // Debitar mana
+                if (habilidade.custo > 0) {
+                    this.mana -= habilidade.custo;
+                    this.energia += 50;
+                }
+                // Esvaziar energia
+                if (habilidade.energia > 0) {
+                    this.energia = 0;
+                }
+                // Retornar mensagem
+                return `${this.nome} usou ${habilidade.nome}`;
+            } else {
+                return `Sem mana ou energia 
+                    para usar ${habilidade.nome}`;
+            }
+    }
 
+    boss_atacar(alvo) {
+        if(this.energia == 100) {
+            alvo.hp -= 15;
+            this.energia = 0;
+        } else {
+            this.energia += 50;
+        }
     }
 }
 
@@ -35,6 +63,17 @@ document.getElementById("nome-boss").textContent =
 `${boss.nome}`;
 document.getElementById("titulo-boss").textContent = 
 `⚔️${boss.titulo}`;
+// Atualizar as barras de vida
+const atualizarInterface = (mensagem) => {
+    // barras herói
+    document.getElementById("hp-hero").value = hero.hp;
+    document.getElementById("mp-hero").value = hero.mana;
+    document.getElementById("en-hero").value = hero.energia;
+    // barras boss
+    console.log(boss.energia)
+    document.getElementById("hp-boss").value = boss.hp;
+    document.getElementById("en-boss").value = boss.energia;
+}
 
 // Criar habilidades e botões
 let container = document.getElementById("controles");
@@ -48,4 +87,9 @@ listaHabilidades.forEach(hab => {
     btn.innerText = hab.nome;
     btn.classList.add("btn","btn-warning");
     container.appendChild(btn);
+    btn.onclick = () => {
+        let mensagem = hero.atacar(boss, hab);
+        atualizarInterface(mensagem);
+        boss.boss_atacar(hero);
+    }
 });
