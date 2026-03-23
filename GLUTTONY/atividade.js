@@ -15,7 +15,7 @@ const dobrar = n => n * 2;
 console.log(dobrar(5) + dobrar(2));
 
 //4
-const frutas = ["maçã", "banana"];
+const frutas = ["maçã", "banana"]; 
 frutas.push("laranja");
 console.log(frutas.length);
 
