@@ -10,7 +10,7 @@ class Personagem {
     atacar(alvo, habilidade) {
         // Duas opções: 
         // - Switch/Case: Para habilidades escaláveis 
-        // - condicionais: Caso não tenha mais habilidades
+        // - condicionais: Caso não tenha mais habilidades1
         if (this.mana >= habilidade.custo && this.energia >= habilidade.energia) {
             alvo.hp -= habilidade.dano;
 

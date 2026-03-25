@@ -33,8 +33,10 @@ class Personagem {
         if(this.energia == 100) {
             alvo.hp -= 15;
             this.energia = 0;
+            return `Boss usou sua habilidade`;
         } else {
             this.energia += 50;
+            return `Boss carregou o ataque`;
         }
     }
 }
@@ -63,8 +65,12 @@ document.getElementById("nome-boss").textContent =
 `${boss.nome}`;
 document.getElementById("titulo-boss").textContent = 
 `⚔️${boss.titulo}`;
+
+// Criar array de turnos
+const turnos = ["Aguardando Ação"];
+
 // Atualizar as barras de vida
-const atualizarInterface = (mensagem) => {
+const atualizarInterface = (msg_hero, msg_boss) => {
     // barras herói
     document.getElementById("hp-hero").value = hero.hp;
     document.getElementById("mp-hero").value = hero.mana;
@@ -73,6 +79,16 @@ const atualizarInterface = (mensagem) => {
     console.log(boss.energia)
     document.getElementById("hp-boss").value = boss.hp;
     document.getElementById("en-boss").value = boss.energia;
+    // turnos
+    document.getElementById("log-hero").textContent = msg_hero;
+    document.getElementById("log-boss").textContent = msg_boss;
+    // mensagem de vitória/derrota
+    if (boss.hp <= 0) {
+        document.getElementById("tela").innerHTML = "Você venceu!";
+    }
+    if (hero.hp <= 0) {
+        document.getElementById("tela").innerHTML = "Você perdeu!";
+    }
 }
 
 // Criar habilidades e botões
@@ -88,8 +104,8 @@ listaHabilidades.forEach(hab => {
     btn.classList.add("btn","btn-warning");
     container.appendChild(btn);
     btn.onclick = () => {
-        let mensagem = hero.atacar(boss, hab);
-        atualizarInterface(mensagem);
-        boss.boss_atacar(hero);
+        let msg_hero = hero.atacar(boss, hab);
+        let msg_boss = boss.boss_atacar(hero);
+        atualizarInterface(msg_hero, msg_boss);
     }
 });
