@@ -1,65 +1,118 @@
-
 <!DOCTYPE html>
-<html>
+
+<html lang="PT-BR">
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="jogo.js">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jogo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
+
+    <audio id="musica" loop preload="auto">
+        <source src="LinkPark.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Tela de início que garante interação antes do jogo -->
+    <div id="tela-inicio" style="
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.85); z-index: 9999;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 20px;">
+        <h1 style="color: white; font-size: 2.5rem;"> Naruto VS Sasuke</h1>
+        <button onclick="iniciarJogo()" style="
+            padding: 16px 48px; font-size: 1.4rem;
+            background: #dc3545; color: white;
+            border: none; border-radius: 8px; cursor: pointer;">
+            ▶ INICIAR JOGO
+        </button>
+    </div>
+
     <div class="container">
         <div class="card text-center">
-            <div class="card-header">RPG: criado por Vitória</div>
-            <div class="card-body" id="tela" style="background-image: url('assets/background.gif'); background-position: 100%;">
-                <p class="card-text"> Turno 1</p>
+            <div class="card-header">RPG: Criado por Arthur Martins</div>
+            <div class="card-body" id="tela"
+                style="background-image:url('assets/Cenario_3.gif'); background-size: cover; background-repeat: no-repeat;">
+                <p class="card-text" style="color: white; font-size: 1.7rem; margin-left: 75px;">Turno 1</p>
                 <div class="row">
-                    <div class="col" id="col-heroi">
-                        <ul class="list-group float-end" style="width: 225px;">
-                            <li id="nome-heroi" class="list-group-item">Ector</li>
-                            <li id="titulo-heroi" class="list-group-item">⚔️</li>
-                            <li id="hp-heroi" class="list-group-item">❤️<progress id="hp-hero" value="100" max="100"
-                                    style="accent-color: red;"></progress></li>
-                            <li id="mp-heroi" class="list-group-item">🧙‍♀️<progress id="mp-hero" value="100"
-                                    max="100"></progress></li>
-                            <li id="en-heroi" class="list-group-item">⚡<progress id="en-hero" value="0" max="100"
-                                    style="accent-color: orange;"></progress></li>
+                    <div class="col text-end" id="col-heroi">
+                        <ul class="list-group float-center" style="width: 225px">
+                            <li id="nome-heroi" class="list-group-item list-group-item-success">Naruto Uzumaki</li>
+                            <li id="titulo-heroi" class="list-group-item">🐅</li>
+                            <li class="list-group-item">HP <progress id="hp-hero" value="400" max="400"
+                                    style="accent-color: rgb(9, 214, 88);"></progress></li>
+                            <li class="list-group-item">Chakra <progress id="mp-hero" value="300" max="300"
+                                    style="accent-color: rgb(53, 53, 97);"></progress></li>
+                            <li class="list-group-item">Kurama <progress id="energia-hero" value="800" max="800"
+                                    style="accent-color: rgb(255, 242, 0);"></progress></li>
                         </ul>
                     </div>
-                    <div class="col" id="col-boss">
-                        <ul class="list-group float-start" style="width: 225px;">
-                            <li id="nome-boss" class="list-group-item">Astrogildo</li>
-                            <li id="titulo-boss" class="list-group-item">⛏️</li>
-                            <li id="hp-boss" class="list-group-item">❤️<progress id="hp-boss" value="100" max="100"
-                                    style="accent-color: red;"></progress></li>
-                            <li id="en-boss" class="list-group-item">⚡<progress id="en-boss" value="0" max="100"
-                                    style="accent-color: orange;"></progress></li>
-                            <li id="en-boss" class="list-group-item"></progress></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="col text-end" id="col-botoes">
-                        <div>
-                            <img src="assets/img.gif" width="200" heigth="200">
-                        </div>
-                        <div class="btn-group" id="controles">
-                            <button class="btn btn-dark">ATTACK</button>
-                            <button class="btn btn-dark">SKILL</button>
-                            <button class="btn btn-dark">ULTIMATE</button>
-                        </div>
+                        <img src="/projeto_rpg/assets/charizard-pokemon.gif" width="230" height="230" style="margin-top: 140px;">
                     </div>
                     <div class="col text-start" id="col-msg">
-                        <img src="assets/imgvilão.gif" width="200" heigth="200">
+                        <img src="/projeto_rpg/assets/blastoise-pokemon.gif" width="230" height="230" class="card-img-bottom"
+                            style="margin-top: 240px;">
+                    </div>
+                    <div class="col text-end" id="col-boss">
+                        <ul class="list-group float-end" style="width: 225px;">
+                            <li id="nome-boss" class="list-group-item list-group-item-danger">Sasuke Uchiha</li>
+                            <li id="titulo-boss" class="list-group-item">👁️‍🗨️</li>
+                            <li class="list-group-item">HP <progress id="hp-boss" value="400" max="400"
+                                    style="accent-color: rgb(14, 233, 43);"></progress></li>
+                            <li class="list-group-item">Sharingan <progress id="energia-boss" value="300" max="300"
+                                    style="accent-color: rgb(231, 18, 18);"></progress></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group" id="controles" style="width: 250px; height: 40px; margin-right: 900px;">
+                        <button class="btn btn-dark">ATTACK</button>
+                        <button class="btn btn-dark">Skill</button>
+                        <button class="btn btn-dark">Ultimate</button>
                     </div>
                 </div>
+                <div class="row"></div>
+
             </div>
-            <div class="card-footer"></div>
-        </div> <!--card-->
-    </div> <!--container-->
+            <div class="card-footer">
+                <small class="text-muted" id="log-hero"></small>
+                <p></p>
+                <small class="text-muted" id="log-boss"></small>
+            </div>
+        </div>
+    </div>
+
+    <div class="Explication">
+        <h1>Descrição</h1>
+        <h2>Naruto VS Sasuke</h2>
+        <p>Naruto Uzumaki e Sasuke Uchiha. Inspirado no confronto final entre os personagens, o jogo traz batalhas
+            rápidas, estratégicas e cheias de ação, onde cada decisão pode definir o vencedor.
+
+            Com habilidades icônicas como Rasengan, Chidori e técnicas avançadas como o Modo Kurama e o Susanoo, os
+            jogadores precisam dominar o uso do chakra, executar combos precisos e reagir com reflexos rápidos para
+            superar o adversário.
+
+            Com visual em estilo 2D e efeitos vibrantes, o jogo oferece uma experiência imersiva que recria a rivalidade
+            lendária entre Naruto e Sasuke, desafiando o jogador a provar quem é o verdadeiro mais forte.</p>
+    </div>
+
+    <script>
+        function iniciarJogo() {
+            var musica = document.getElementById("musica");
+            musica.volume = 1.0;
+            musica.play().then(function () {
+                console.log("Música tocando!");
+            }).catch(function (erro) {
+                console.log("Erro ao tocar música: " + erro);
+            });
+            document.getElementById("tela-inicio").style.display = "none";
+        }
+    </script>
 
     <script src="jogo.js"></script>
+</body>
 
-</body> <!--body-->
-</html> <!--html-->
+</html>

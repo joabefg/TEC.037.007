@@ -1,0 +1,74 @@
+body{
+    background-image: url(assets/back.gay.gif) ;
+      background-size: cover;      /* Cobre toda a área sem distorcer */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição */
+  background-attachment: fixed; /* Efeito parallax (opcional) */
+}
+div {
+    color: rgb(8, 8, 8);
+    font-size: 18px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+   
+}
+#col-botoes img,
+#col-msg img {
+    margin-top: 30px; /* ajuste esse valor para descer mais ou menos */
+    vertical-align: bottom;
+}
+
+/* Compensa a diferença de altura entre os dois (350px vs 300px) */
+#col-msg img {
+    margin-top: 140px; /* 60px base + 25px para compensar os 50px de diferença */
+}
+
+.Explication {
+    /* 1. FUNDO SEMI-TRANSPARENTE */
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    /* 2. LARGURA E CENTRALIZAÇÃO */
+    max-width: 1300px;
+    margin: 40px auto 60px auto;
+
+    /* 3. ESPAÇAMENTO INTERNO */
+    padding: 40px 50px;
+
+    /* 4. BORDA E ARREDONDAMENTO */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 200, 0, 0.3);
+
+    /* 5. SOMBRA EXTERNA */
+    box-shadow: 0 0 60px rgba(255, 180, 0, 0.15);
+}
+
+.Explication h1 {
+    /* 6. TÍTULO PRINCIPAL */
+    font-size: 2rem;
+    color: #FFD700;
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+    margin-bottom: 4px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.Explication h2 {
+    /* 7. SUBTÍTULO */
+    font-size: 1.4rem;
+    color: #ff6b6b;
+    text-shadow: 0 0 8px rgba(255, 80, 80, 0.5);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.Explication p {
+    /* 8. TEXTO DO PARÁGRAFO */
+    color: #e8e8e8;
+    font-size: 1rem;
+    font-family: 'Georgia', serif;
+    line-height: 1.8;
+    text-align: justify;
+    text-shadow: none;
+}
