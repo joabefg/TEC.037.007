@@ -69,6 +69,11 @@ como acessar atributos do css e html por meio do javascript
 
 - [ ] Caso ocorra a implementação da possibilidade de ser um boss, será necessário mudar os campos com o nome **heroi** para **personagem**
 - [ ] Realizar a validação dos campos do formulário e instanciar o objeto do personagem
+- [ ] Fazer com que ao enviar o formulário a página "mude" (ativar o hidden do card do formulário e desativar o hidden do jogo)
+- [ ] Pegar os dados que foram colocados no formulário assim que ele for enviado
+- [ ] Mostrar os dados que foram colocados
+- [ ] Implementar a troca de fotos com base na escolha do usuário
+- [ ] Implementar a lógica do combate e condições de vitória
 
 ---
 
