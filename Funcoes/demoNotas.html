@@ -1,0 +1,32 @@
+<script>
+
+    let msg = "Qual a sua primeira nota?"
+    let nota1 = parseFloat(prompt(msg))
+    msg = "Qual a sua segunda nota?"
+    let nota2 = parseFloat(prompt(msg))
+    msg = "Qual a sua terceira nota?"
+    let nota3 = parseFloat(prompt(msg))
+    alert(verificarNotas(nota1, nota2,nota3));
+    
+
+    function verificarNotas(nota1, nota2, nota3){
+
+        let media = (nota1 + nota2 + nota3)/3
+        
+        if (media >= 7){
+            
+            console.log("Voce foi provado" + media)
+
+        }else{
+
+            console.log("Voce reprovou !!"+ media ) 
+
+        }
+        return verificarNotas;
+
+    }
+
+
+    
+   
+</script>

@@ -1,0 +1,27 @@
+<script>
+    
+    let msg = "Qual a sua idade"
+
+    function poderDirigir(idade){
+
+        const idade = prompt(msg);
+        function verificarIdade (idade){
+            if (idade >= 18){
+                
+                return("Voce pode dirigir")
+
+
+            }else{
+
+                let anosRestantes = 18 - idade;
+                return "Faltam " +  anosRestantes + "anos para vc poder dirigir "
+
+            }
+
+        }
+
+        let habilitavel = podeDirigir(Idade)
+        alert(habilitavel)
+    }
+
+</script>
