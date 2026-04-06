@@ -19,4 +19,4 @@ const estilo = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold'
     }
-})
+})                                                                                                                                                                                                                                                             
