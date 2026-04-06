@@ -17,8 +17,9 @@ const estilo = StyleSheet.create({
 
     },
     texto:{
-        fontSize: 24,
-        fontWeight:'bold',
+        fontSize: 40,
+        fontWeight: 500,
+        color: 'rgb(193'
     }
 })
 

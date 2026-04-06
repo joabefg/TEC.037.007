@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Calculadora</h1>
+
+    <script>
+    //     let continuar = "sim";
+
+    //     while(continuar == "sim" || continuar =="SIM"){
+
+    //     alert(`Bem vindo a calculadora Online!`);
+    //     let n1 = Number(prompt("Digite o primeiro número : "));
+    //     let operacao = prompt("Escolha a sua operacao (+,-,X,%,^) : ");
+    //     let n2 = Number(prompt("Digite o segundo número : "));
+
+        
+    //     if( operacao == "+"){
+    //         let result = n1 + n2 ;
+    //         alert(`Adição --> ${n1} + ${n2} = ${result.toFixed(2)}`);
+    //     } else if (operacao == "-"){
+    //         let result = n1 - n2 ;
+    //         alert(`Subtração --> ${n1} - ${n2} = ${result.toFixed(2)}`);
+    //     // || --> significa or (ou)/ se operacao for igual a X ou x 
+    //     } else if (operacao == "X" || operacao == "x"){
+    //         let result = n1 * n2 ;
+    //         alert (`Multiplicação --> ${n1} X ${n2} = ${result.toFixed(2)}`);
+    //     } else if (operacao == "/" || operacao =="%") {
+    //         let result = n1 / n2;
+    //         alert (`Divisão --> ${n1}/${n2} = ${result.toFixed(2)}`) ;
+    //     } else if (operacao == "^" || operacao == "**"){
+    //         let result = n1 ** n2 ;
+    //         alert(`Potenciação --> ${n1} elevado a ${n2} = ${result.toFixed(2)}`);
+    //     } else {
+    //         alert(`ERROR !`)
+    //     }
+
+    //    continuar =  prompt(`Deseja continuar? (sim/não)`)
+
+    //    if(continuar == "não" || continuar =="Não"){
+    //     alert(`Sistema Concluído!`)
+    //    }
+    // }
+    </script>
+    <div class="form-group">
+    
+    <label> Primeiro número</label>
+    <br>
+    <input type="number" id="n1">
+    <br>
+    <br>
+    <label>operação</label>
+    <br>
+    <input type="text" id ="operacao">
+    <br>
+    <br>
+    <label>Segundo Número</label>
+    <br>
+    <input type="number" id="n2">
+    </div>
+
+    <button onclick="calcular()">Calcular</button>
+    <p id="resultado"></p>
+</body>
+<script src="script.js"></script>
+</html>
