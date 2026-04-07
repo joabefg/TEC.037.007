@@ -1,0 +1,136 @@
+<script>
+    //Objeto heroi
+    let heroi = {
+        nome: "Raquelly",
+        hp: 250,
+        mp: 150,
+        energia: 0,
+        pocoes: 3
+    }
+
+    //Objeto boss
+    let boss = {
+        nome: "Luiza",
+        hp: 300,
+        mp: 200,
+    }
+
+    //Habilidades do herói
+    let skills_heroi = [
+        /*
+        id - Identifica qual o ataque a ser utilizado
+        nome - Identifica o nome do ataque
+        custo - Identifica quanto de MP o ataque irá consumor
+        energia - Identificia quanto de energia o ataque irá consumir
+        */
+        {id: 1, nome: "Golpe simples", dano: 10, custo: 0, energia: 0}, //Skill de ataque
+        {id: 2, nome: "Barbie 2000", dano: 25, custo: 20, energia: 0}, //Skill de ataque
+        {id: 3, nome: "Dreamhouse adventure", dano: 70, custo: 0, energia: 70}, //Skill de ataque especial
+        {id: 4, nome: "O ken me ama - poção", vida: 50, consumo: 1, energia: 0}, //Skill de cura | só pode ser usada enquanto eistem poções
+    ]
+
+    //Habilidades do boss
+    let skills_boss = [
+        {id: 1, nome: "ataque simples", dano: 20, custo: 0},
+        {id: 2, nome: "ataque mediano", dano: 40, custo: 20},
+        {id: 3, nome: "ataque avançado", dano: 60, custo: 30}
+    ]
+
+    /* LÓGICA DO JOGO EM SI */
+
+    const ataqueHeroi = (tipoAtaque) => { //Arrow function que implementa os ataques do herói ao boss
+        const habilidade = skills_heroi.find(skill => skill.id == tipoAtaque) //Busca dentro do array o id do item "skill" que corresponde ao parâmetro tipo ataque passado anteriormente | habilidade = skill
+        
+        if(heroi.mp >= habilidade.custo && heroi.energia >= habilidade.energia){ //Verifica se o Heroi pode atacar
+            boss.hp -= habilidade.dano //Decrementa a vida do boss
+            heroi.mp -= habilidade.custo //Decrementa o MP do herói
+            heroi.energia += habilidade.custo //Carrega a energia com base no quanto de mp foi gasto
+            alert(`O herói ${heroi.nome} usou ${habilidade.nome}!\nE causou ${habilidade.dano} de dano no boss ${boss.nome}`)
+        } else if(heroi.pocoes >= habilidade.consumo){ //Verifica se existem poções o suficiente
+            heroi.hp += habilidade.vida
+            alert(`O herói ${heroi.nome} usou ${habilidade.nome} e recuperou sua vida em ${habilidade.vida} pontos\nVida atual ${heroi.hp}`)
+        } else if (heroi.mp < habilidade.custo) { //Verifica se existe mp suficiente
+            alert(`A ${heroi.nome} não pode atacar\nNão há MP suficiente`)
+        } else if(heroi.energia < habilidade.energia){ //Verifica se existe energia suficiente
+            alert(`A ${heroi.nome} não pode atacar\nNão há energia suficiente`)
+        }
+        heroi.mp += 10 //Carrega o mp do herói em 10 sempre que ele ataca
+    }
+
+    
+    const ataqueBoss = (tipoAtaque) => {
+        const habilidade = skills_boss.find(skills => skills.id == tipoAtaque) //Mesma lógica que foi implantada para o herói
+        if (boss.mp >= habilidade.custo) {
+            heroi.hp -= habilidade.dano
+            boss.mp -= habilidade.custo
+            alert(`O boss ${boss.nome} realizou um ${habilidade.nome}\nE causou ${habilidade.dano} de dano no heroi ${heroi.nome}`)
+        } else {
+            console.log("O boss não pode atacar pois não tem MP")
+        }
+        boss.mp += 5
+    }
+
+    /* MISCELANIUS */
+    const menu = `Escolha uma das opções a seguir:
+    1 - Golpe simples | 2 - Barbie 2000 | 3 - Dreamhouse adventure | 4 - O ken me ama - poção
+    `
+
+<<<<<<< HEAD
+    while (heroi.hp > 0 && boss.hp > 0){
+=======
+    do {
+>>>>>>> d43c4a9 (Add: arquivos das aulas)
+        alert(`***STATUS***\nBoss: ${boss.hp} | Hero: ${heroi.hp}`)
+        
+        if (heroi.hp > 0) {
+            ataqueHeroi(parseInt(prompt(menu)))
+
+            //Realizando a descontrução para ter uma visão geral do HERÓI | Utilizado para debug
+            const {nome: heroiNome, hp: heroiHp, mp: heroiMp, energia: heroiEnergia, pocoes: heroiPocoes} = heroi
+            console.log(`Nome do heroi: ${heroiNome}\nVida do heroi: ${heroiHp}\nMana do heroi: ${heroiMp}\nPoções do herói: ${heroiPocoes}\nEnergia do heroi: ${heroiEnergia}
+            `)
+        } else {
+<<<<<<< HEAD
+            alert(`Você perdeu! ${boss.nome} te matou :(`);
+=======
+            alert(`Você perdeu! ${boss.nome} te matou :(`)
+>>>>>>> d43c4a9 (Add: arquivos das aulas)
+        }
+
+        if (boss.hp > 0) {
+            let escolhaBoss = Math.floor(Math.random() * 3) + 1; //O ataque do boss é definido de forma aleatória
+            ataqueBoss(escolhaBoss) //Ataque do boss
+
+            //Realizando a descontrução para ter uma visão geral do BOSS | Utilizado para debug
+            const {nome: bossNome, hp: bossHp, mp: bossMp} = boss
+            console.log(
+                `Nome do boss: ${bossNome}\nVida do boss: ${bossHp}\nMana do boss: ${bossMp}
+            `)
+        } else{
+            alert(`O heroi ${heroi.nome} ganhou :0!! Parabéns :)`)
+        }
+<<<<<<< HEAD
+    }
+=======
+
+    } while (heroi.hp > 0 && boss.hp > 0);
+>>>>>>> d43c4a9 (Add: arquivos das aulas)
+
+    /*
+        atacar - Ataque do heroi ou do boss
+        defender - Defesa do heroi ou do boss
+        habilidade Especial - uso da habilidade especial -> consome mp
+        usar poção - Apenas o herói -> apenas 3 poções
+    */
+
+   /*PRECISA SER FEITO
+    - Validação de campos
+    - Botão de saída
+<<<<<<< HEAD
+    - Implementar interface gráfica
+=======
+    - Implementar visualmente
+>>>>>>> d43c4a9 (Add: arquivos das aulas)
+   */
+  
+</script>

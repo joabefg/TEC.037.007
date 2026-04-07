@@ -1,0 +1,83 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Raquelly VS Luiza</title>
+
+</head>
+<body data-bs-theme="dark">
+    <div class="container py-5">
+        <div class="card text-center shadow-sm"> <!-- Define o card | Alinha o texto ao centro -->
+            <div class="card-header">Raquelly VS Luiza</div> <!-- Header do Card -->
+            <div class="card-body" id="tela"
+                style="background-image: url(assets/City1.png); background-size: contain;">
+                <p class="card-text" id="contador">Turno: 1</p> <!-- A cada rodada o contador será incrementado -->
+                
+                <!-- Coluna do Herói -->
+                <div class="col">
+                    <div class="row">
+                        <div class="col text-end">
+                            <!-- Informações sobre o herói -->
+                            <ul class="list-group float-end shadow-sm" data-bs-theme="light" style="width: 225px;">
+                                <li class="list-group-item list-group-item-dark text-center"
+                                    id="heroi-nome" style="font-weight: 800;">Raquelly</li> <!-- Nome do heroi -->
+                                <li class="list-group-item" id="desc-heroi">⚔️</li> <!-- Status de ação atual do herói -->
+                                <li class="list-group-item" id="grupo-heroi-hp"> <!-- Vida do heroi -->
+                                    🤍<progress id="heroi-hp" value="100" max="100" style="accent-color: red;"></progress>
+                                </li>
+                                <li class="list-group-item" id="grupo-heroi-mp"> <!-- Mp do herói -->
+                                    🧪<progress id="heroi-mp" value="100" max="100" style="accent-color: blue;"></progress>
+                                </li>
+                                <li class="list-group-item" id="grupo-heroi-en"> <!-- Energia do herói -->
+                                    ⚡<progress id="heroi-en" value="0" max="100" style="accent-color: green;"></progress>
+                                </li>
+                            </ul>
+                            
+                            <!-- Imagem do herói-->
+                            <div class="col text-start">
+                                <img src="assets/heroina-raquelly.png" alt="Imagem do boss"
+                                    width="200px" height="200px"
+                                    class="img-thumbnail rounded">
+                            </div>
+                        </div> <!-- Coluna do herói -->
+
+                        <!-- Coluna do boss -->
+                        <div class="col text-end" id="col-boss">
+                            <!-- Informações sobre o boss -->
+                            <ul class="list-group float-start shadow-sm" data-bs-theme="light" style="width: 225px;"">
+                                <li class="list-group-item list-group-item-dark text-center"
+                                    id="boss-nome" style="font-weight: 800;">Luiza</li> <!-- Nome do boss -->
+                                <li class="list-group-item" id="desc-boss">⚔️</li> <!-- Status de ação atual do boss -->
+                                <li class="list-group-item" id="grupo-boss-hp"> <!-- Vida do boss -->
+                                    🖤<progress id="boss-hp" value="45" max="300" style="accent-color: red;"></progress>
+                                </li>
+                                <li class="list-group-item" id="grupo-boss-energia"> <!-- Energia do herói -->
+                                    ⚡<progress id="boss-energia" value="0" max="150" style="accent-color: green;"></progress>
+                                </li>
+                            </ul>
+                            <!-- Imagem do boss-->
+                            <div class="col text-center float-end">
+                                <img src="assets/boss-Luiza.png" alt="Imagem do boss" width="220px" height="220px">
+                            </div>
+                        </div> <!-- Coluna boss -->
+                    </div> <!-- Linha (row) -->
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-primary" id="ataque-simples">Attack</button>
+                                <button type="button" class="btn btn-outline-primary" id="ataque-skill">Skill</button>
+                                <button type="button" class="btn btn-outline-primary" id="ataque-ultimate">Ultimate</button>
+                            </div>
+                        </div>
+                    </div> <!-- Final linha (row) -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

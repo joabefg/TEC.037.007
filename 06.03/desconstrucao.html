@@ -1,16 +1,23 @@
 <script>
-    let produto = {
-        id: 101,
-        descricao: "Teclado",
-        preco: 250.00,
-        estoque: 15
+    //Criando os objetos que serão utilizados
+    let produto = { //Objeto produto
+        id: 1,
+        descricao: "Mouse",
+        preco: 245.99,
+        estoque: 20
     }
-    let cliente = {
-        nome: "João",
-        descricao: "Cliente VIP"
+
+    let cliente = { //Objeto cliente
+        nome: "Luiza",
+        descricao: "Cliente de alto padrão"
     }
-    alert(`desc. prod: ${produto.descricao} 
-    - desc. cliente: ${cliente.descricao}`);
-    const { descricao, preco} = produto;
-    alert(descricao);
+
+    //Acessando os valores dos usuários
+    alert(`- Descrição produto: ${produto.descricao} \n- Descrição cliente: ${cliente.descricao}`)
+    const { nome: nomeProduto, descricao: descricaoProduto } = produto //Desestruturando nosso objeto produto | Renomeando campos
+    const { nome: nomeCliente, descricao: descricaoCliente } = cliente //Desestruturando nosso objeto cliente | Renomeando campos
+
+    alert(descricaoProduto)
+    alert(descricaoCliente)
+
 </script>

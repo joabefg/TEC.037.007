@@ -1,0 +1,150 @@
+<!-- Código criado para simular um jogo de linha de comando com Javascript -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de RPG</title>
+</head>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    #container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin: 8px 0px 25px 25px;
+    }
+
+    /* Configurações relacionadas ao conjunto "mensagens" e "controles"  */
+    #home{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 15px;
+    }
+    /* Configurações relacionadas aos botões */
+    .controls{
+        display: flex;
+        margin: 10px 0px;
+        gap: 20px;
+    }
+    .controls button{
+        height: 40px;
+        width: 70px;
+    }
+
+</style>
+
+<body id="container">
+    <div id="home">
+        <h1> Seja bem vindo ao jogo de RPG </h1>
+        <p> O que você gostaria de fazer: </p>
+        <div class="controls">
+            <button onclick="startGame()">Iniciar</button>
+            <button onclick="stopGame()">Sair</button>
+        </div>
+    </div>
+
+</body>
+<script>
+    let hpBoss = 300; //vida do boss
+    let manaHeroi = 120; //Mana do herói
+    let manaGastaTotal = 0; //Mana gasto pelo herói
+    let hpHeroi = 200; //Vida do herói
+    let acaoHeroi; //Ação feita pelo herói
+    let acaoBoss //Ação feita pelo boss
+
+    function startGame() {
+        alert("O boss surgiu, mate-o")
+        for(let turno=1; turno <= 15; turno++){
+            //Verificando se o Boss morreu
+            if(hpBoss <=0 ){
+                alert("O boss foi derrotado")
+                break
+            }
+            //Retorna 0, 1 e 2. Soma mais um para trazer 1, 2, 3 | floor -> Faz com que o número seja redondo
+            //acao = Math.floor(Math.random() * 3) + 1;
+            let menu = `Escolha sua ação:
+                        1 - Ataque básico
+                        2 - Skill
+                        3 - Ultimate
+                        4 - Potion`
+            let escolha = prompt(`${menu}`)
+            acaoHeroi = parseInt(escolha)
+
+            alert(`Ação: ${acaoHeroi}`)
+            switch (acaoHeroi) {
+                case 1:
+                    alert("Ataque básico. 20 de dano");
+                    hpBoss -= 20
+                    break;
+                case 2:
+                    alert("Skill. 50 de dano");
+                    if (manaHeroi >= 30) {
+                        hpBoss -= 50
+                        manaHeroi -= 30
+                    }
+                    else{
+                        alert("Mana insuficiente")
+                    }
+                    break
+                case 3:
+                    if (manaHeroi >= 100){
+                        alert("Ultimate. 150 de dano")
+                        hpBoss -= 150
+                        manaHeroi = 0
+                    } else{
+                        alert("Ultimate não carregada")
+                    }
+                    break
+                case 4:
+                    //Recuperar vida
+                default:
+                    console.log("Nada foi feito")
+                    break;
+                }
+                //A cada turno a mana do herói é incrementada em 20
+                manaHeroi += 20
+            
+            //Define qual ação será tomada pelo boss, de forma aleatória
+            acaoBoss = Math.floor(Math.random() * 3) + 1;
+            switch (acaoBoss) {
+                case 1:
+                    alert("O boss realizou um ataque simples. -20 de vida");
+                    hpHeroi -= 20
+                    break;
+                case 2:
+                    alert("O boss utilizou a Skill. -65 de vida");
+                    hpHeroi -= 65
+                    break
+                case 3:
+                    alert("O boss utilizou um ataque especial. -100 de vida")
+                    hpHeroi -= 100
+                    break
+                default:
+                    console.log("Nada foi feito pelo boss")
+                    break;
+                }
+            if(hpHeroi <= 0){
+                alert("O boss te matou. Você perdeu")
+                break
+            }
+        }
+    }
+    
+    function stopGame(){
+        alert("Jogo parado")
+        console.error("jogo")
+    }
+</script>
+</html>

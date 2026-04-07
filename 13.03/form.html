@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap demo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    </head>
+    <body>
+        <main class="container py-5"> <!-- Criando o container principal -->
+            <!-- Criando a divisão entre o formulário e a tabela de informações -->
+            <div class="row g-4">
+                <!-- CARD -->
+                <div class="col-md-5">
+                    <div class="card border-0 shadow-sm p-4"> <!-- Estilização do card -->
+                        <h5 class="card-header mb-3 text-primary">Cadastro - Funcionario</h5> <!-- Header do card -->
+                        <div class="card-body"> <!-- Corpo do card -->
+
+                            <!-- FORMULÁRIO -->
+                            
+                            <form id="formularioCadastro">
+                                <!-- Campos do formulário -->
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="input-nome" placeholder="Digite seu nome" required>
+                                    <label for="input-nome">Digite seu nome</label>
+                                </div>
+                                <div class="row g-2 mt-0 mb-2" id="grupo-inputs">
+                                    <div class="col form-floating">
+                                        <input type="tel" class="form-control" id="input-tel" placeholder="Digite seu telefone">
+                                        <label for="input-tel">Digite seu telefone</label>
+                                    </div>
+                                    <div class="col form-floating">
+                                        <input type="email" class="form-control" id="input-email" placeholder="Digite seu email">
+                                        <label for="input-email">Digite seu email</label>
+                                    </div>
+                                </div>
+                                
+                                <!-- RADIO -->
+                                <div class="mb-2">
+                                    <label class="form-label d-block small fw-bold">Vínculo:</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="escolha-profissao" id="escolha-aluno" value="Aluno">
+                                        <label class="form-check-label" for="escolha-aluno">
+                                            Aluno
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="escolha-profissao" id="escolha-professor" checked value="Professor">
+                                        <label class="form-check-label" for="escolha-professor">
+                                            Professor
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- CHECKBOX -->
+                                <div class="mb-2">
+                                    <label class="form-label d-block small fw-bold">Interesses</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="opcao-dev" id="Dev" value="Dev">
+                                        <label class="form-check-label" for="opcao-dev">
+                                            Dev
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input form-check-inline" type="checkbox" id="opcao-cyber" value="Cyber Security">
+                                        <label class="form-check-label" for="opcao-cyber">
+                                            Cyber Security
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- SLIDER -->
+                                <div class="mb-3">
+                                    <label class="form-label small fw-bold">Satisfação: <span id="valorSatisfacao">50</span>%</label>
+                                    <!-- Pega o valor do proprio range e o apresenta dentro da tag span ("valorSatisfacao") por meio do innerText=this.value
+                                     de forma que "this.value" representa o valor atual do range -->
+                                    <input type="range" class="form-range" id="satisfacao" oninput="valorSatisfacao.innerText=this.value">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Enviar pra tropa</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- TABELA -->
+                <div class="col">
+                    <div class="table-responsive rounded shadow-sm">
+                        <table class="table shadow-sm align-middle mb-0"> <!-- Configurações da tabela -->
+                            <thead class="table-dark"> <!-- Header da tabela -->
+                                <tr>
+                                    <th scope="col">Nome/Contato</th>
+                                    <th scope="col">Vínculo</th>
+                                    <th scope="col">Interesses</th>
+                                    <th scope="col">Satis.</th>
+                                </tr>
+                            </thead>
+                            <tbody id="corpoTabela"> <!-- Corpo da tabela -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+
+        <!--
+        - card
+            - Form control
+                - Input Nome [x]
+                - Input Telefone [x]
+                - Input Email [x]
+                - Radio e Checkbox [x]
+                    - "Vínculo": [x]
+                        - Radio (Professor & Aluno) [x]
+                    - "Interesses": [x]
+                        - Checkbox (Dev & Cyber Security) [x]
+                - Satisfação [x]
+                    - Slider [x]
+                - Botão de envio [x]
+        - Tabela [x]
+            - Campos [x]
+                - Nome/Contato [x]
+                - Vinculo [x]
+                - Interesses [x]
+                - Satis. [x]
+            - Objetivo [x]
+                - Mostrar as informações cadastradas anteriormente [x]
+        -->
+    
+    <script>
+        //Formulário de cadastro
+        const formulario = document.getElementById("formularioCadastro");
+
+        //Campos do formulario
+        const tabela = document.getElementById("corpoTabela");
+        const email = document.getElementById("input-email");
+        const nome = document.getElementById("input-nome");
+        const tel = document.getElementById("input-tel");
+        const satisfacao = document.getElementById("satisfacao");
+        const vinculo = document.getElementById("vinculo")
+        
+        //Alterando o comportamento padrão ao enviar o formulário
+        formulario.onsubmit = (e) => {
+            /* Tudo que está dentro dessa função será executado SOMENTE quando o formulário for enviado */
+
+            e.preventDefault(); //Faz com que o comportamento padrão não seja executado
+
+
+            /*Realizando a validação dos campos do formulário*/
+            
+
+            //Acessando os valores que forem passados dentro do input | Acessa os valores APENAS quando o formulário é enviado
+            /*utilizar os nodes para uma segurança melhor*/
+            valor_nome = nome.value;
+            valor_email = email.value;
+            valor_tel = tel.value;
+            valor_satisfacao = satisfacao.value;
+
+            //Linha que será adicionada
+            const linha = `<tr>
+                <td>${valor_email}/${valor_nome}</td>
+                <td></td>
+                <td></td>
+                <td><div class="progress" style="height: 8px;"><div class="progress-bar" style="width: ${valor_satisfacao}%"></div></div></td>
+                </tr>`;
+            
+            tabela.innerHTML += linha; //Adiciona os valores digitados pelo usuário a tabela
+
+            formulario.reset(); //Deixa o formulário em branco
+        }
+    </script>
+    </body>
+</html>
