@@ -4,7 +4,7 @@ import { Link } from 'expo-router';
 export default function Index() {
   return (
     <View style={estilo.container}>
-      <Image style={estilo.img} source={require('@/assets/images/senai.png')} />
+      <Image style={estilo.img} source={require('@/assets/images/senai.jpg')} />
       <Text style={estilo.titulo}>Bem-vindo ao senai!!</Text>
       <Link href="/sobre">
         <View style={estilo.botao}>
