@@ -55,6 +55,7 @@ class Habilidade {
 let hero = new Personagem("Aragon", "O Herói", 100, 100, 0);
 let boss = 
     new Personagem("Radagon", "Elden Beast", 100, 0, 50);
+let turno = 1;
 
 // Preencher Status
 document.getElementById("nome-heroi").textContent = 
@@ -82,6 +83,10 @@ const atualizarInterface = (msg_hero, msg_boss) => {
     // turnos
     document.getElementById("log-hero").textContent = msg_hero;
     document.getElementById("log-boss").textContent = msg_boss;
+    // turno
+    //document.getElementById("turno-info").textContent = msg_hero;
+    turno++;
+    document.getElementById("turno-info").innerText = parseInt(turno);
     // mensagem de vitória/derrota
     if (boss.hp <= 0) {
         document.getElementById("tela").innerHTML = "Você venceu!";
