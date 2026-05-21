@@ -1,4 +1,4 @@
-import { biblioteca } from './database.js';
+import { biblioteca } from './database';
 import { buscarLivroPorId, atualizarStatus, exibirResumo } from './actions';
 
 console.log("--- Sistema de Biblioteca ---");

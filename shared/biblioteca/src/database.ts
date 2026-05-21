@@ -1,4 +1,4 @@
-import { Livro } from './types.js';
+import { Livro } from './types';
 
 // Criamos um array de livros usando a Interface
 export const biblioteca: Livro[] = [
