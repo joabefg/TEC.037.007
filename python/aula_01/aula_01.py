@@ -10,7 +10,7 @@ girias_br = {
      "muvuca": "aglomeração de pessoas",
      "treta": "confusão"
 }
-girias_dict = dict(gambiarra="solução improvisada", muvuca="aglomeração de pessoas", treta="confusão")
+alimento = dict(goiaba="fruta", abobora="legume", grao="feijão")
 # add item
 capitais = {
      "Brasil": "Brasília",
@@ -20,7 +20,7 @@ capitais["China"] = "Xangai" # Xangai não é a capital?
 # imprimir a lista inteira
 print(capitais)
 # alterar item
-capitais["China"] = "Pequin"
+capitais["China"] = "Pequim"
 # acessar um item específico
 print(capitais["China"] )
 # acessar item inexistente
@@ -45,8 +45,66 @@ for item in capitais.items():
      print(item)
 for pais,cidade in capitais.items():
      print(cidade," é a capital de ",pais)
+# dicionário dentro de dicionário
+npc = {
+    "nome": "Ferreiro",
+    "fala": "Precisa de espada?",
+    "itens": {
+        "espada": 100,
+        "escudo": 80
+    }
+}
+print(npc)
+# Crie um dicionário contendo sua ficha de personagem, com nome, raça, classe, nível, arma, ouro
+# O dicionário deve ter um subdicionário com seus atributos: vida, magia, defesa, ataque e sorte
+# cada atributo terá um valor de 1 a 5 mas o total deve ser no máximo 20 pontos
 
-# ATIVIDADE: CRIAR UMA LISTA DE ALGO QUE VOCÊ GOSTA, INSERIR NOVOS ITENS
+# ATIVIDADE: 
+     # 1. Professor faz uma lista de rpg, os alunos copiam e depois preenchem
+     # 2. Professor faz um jogo de tabuleiro de acesso á dungeon e os alunos jogam
+     # 3. Em um jogo de perguntas e respostas Ana fez 8 pontos, Pedro fez 6 e Lucas fez 10, 
+     #    Crie um dicionário que contenha os nomes e os pontos de cada aluno.
+# Lista de RPG
+personagem = {
+    "nome": "Arthos",
+    "raca": "Humano",
+    "classe": "Guerreiro",
+    "nivel": 3,
+    "idade": 25,
+    "origem": "Soldado",
+    "arma_principal": "Espada Longa",
+    "ouro": 120,
+    "inventario": ["Poção de Cura", "Tocha", "Corda"],
+    "atributos": {
+        "pontos_de_vida": 35,
+        "classe_de_armadura": 16,
+        "proeficiencia": 2,
+        "percepcao": 4,
+        "iniciativa": 3
+    }
+}
+# Tabuleiro
+mapa = {
+    1: "monstro",
+    2: "saída",
+    3: "tesouro",
+    4: "arma",
+    5: "cura",
+    6: "armadura"
+}
+historico = []
+
+while True:
+    sala = int(input("Escolha uma sala: "))
+
+    if sala in mapa:
+        print("Você encontrou:", mapa[sala])
+
+        if mapa[sala] == "tesouro":
+            print("VOCÊ VENCEU!")
+            break
+    else:
+        print("Sala inexistente")
 
 '''
 pequenos fragmentos de código que fazem tarefas pequenas mas ninguém quer ficar
@@ -116,9 +174,24 @@ print(persa.cor)
 # --print(sphynx.cor)-- vai dar erro porque esse gato não possui cor, confuso não?
 # inicialização
 class Gatoo:
-     def __init__(self): # init é o mesmo do contrutor do javascript
+     def __init__(self): # init não é obrigatório como o construtor do javascript mas age parecido
           pass
 class Gatooo:
      def __init__(self, cor):
           self.cor = cor
 gato_preto = Gatooo('preto')
+print(gato_preto.cor)
+# Método, herança e sobrescrita
+class Veiculo():
+     def definicao(self):
+          print("Eu sou um veículo!")
+class Carro(Veiculo):
+     # pass (usa o pass primeiro e depois mostra a sobrescrita)
+     def definicao(self):
+          print("Eu sou um veículo, mais especificamente um carro.")
+v = Veiculo()
+c = Carro()
+v2 = Carro()
+v.definicao()
+c.definicao()
+v2.definicao()
